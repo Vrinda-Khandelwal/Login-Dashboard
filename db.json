@@ -1,0 +1,10 @@
+{
+  "clients": [
+    { "id": 1, "name": "Alice", "role": "Client Manager", "contact": "alice@client.com" },
+    { "id": 2, "name": "Bob", "role": "Product Owner", "contact": "bob@client.com" }
+  ],
+  "employees": [
+    { "id": 1, "name": "Eve", "role": "Software Engineer", "contact": "eve@gmail.com" },
+    { "id": 2, "name": "John", "role": "QA Tester", "contact": "john@gmail.com" }
+  ]
+}
