@@ -9,12 +9,14 @@ export default function Dashboard() {
 
   // Fetch clients and employees from API
   useEffect(() => {
-    fetch('http://localhost:3001/clients')
+    //fetch('http://localhost:3001/clients')
+    fetch("https://securelytix-api.onrender.com/clients")
       .then(res => res.json())
       .then(data => setClients(data))
       .catch(err => console.error('Failed to load clients:', err));
 
-    fetch('http://localhost:3001/employees')
+    //fetch('http://localhost:3001/employees')
+    fetch("https://securelytix-api.onrender.com/employees")
       .then(res => res.json())
       .then(data => setEmployees(data))
       .catch(err => console.error('Failed to load employees:', err));
