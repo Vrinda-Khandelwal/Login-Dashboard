@@ -8,7 +8,7 @@ export default function Dashboard() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   // Fetch clients and employees from API
- /* useEffect(() => {
+ useEffect(() => {
     //fetch('http://localhost:3001/clients')
     fetch("https://securelytix-api.onrender.com/clients")
       .then(res => res.json())
@@ -21,8 +21,8 @@ export default function Dashboard() {
       .then(data => setEmployees(data))
       .catch(err => console.error('Failed to load employees:', err));
   }, []);
-*/
-  useEffect(() => {
+
+  /*useEffect(() => {
   fetch("https://securelytix-api.onrender.com/clients")
     .then(res => res.json())
     .then(data => {
@@ -39,7 +39,7 @@ export default function Dashboard() {
     })
     .catch(err => console.error('Failed to load employees:', err));
 }, []);
-
+*/
   const handleClientChange = (e) => {
     const id = parseInt(e.target.value);
     const client = clients.find(c => c.id === id);
