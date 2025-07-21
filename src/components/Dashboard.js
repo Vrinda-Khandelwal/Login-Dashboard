@@ -8,47 +8,45 @@ export default function Dashboard() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   // Fetch clients and employees from API
- useEffect(() => {
-    //fetch('http://localhost:3001/clients')
-    fetch("https://securelytix-api.onrender.com/clients")
-      .then(res => res.json())
-      .then(data => setClients(data))
-      .catch(err => console.error('Failed to load clients:', err));
-
-    //fetch('http://localhost:3001/employees')
-    fetch("https://securelytix-api.onrender.com/employees")
-      .then(res => res.json())
-      .then(data => setEmployees(data))
-      .catch(err => console.error('Failed to load employees:', err));
-  }, []);
-
-  /*useEffect(() => {
+useEffect(() => {
+  //fetch("http://localhost:3001/clients")
   fetch("https://securelytix-api.onrender.com/clients")
-    .then(res => res.json())
+    .then(res => {
+      console.log("Clients fetch response:", res);
+      return res.json();
+    })
     .then(data => {
-      console.log("Clients:", data);
+      console.log("Clients data fetched:", data);
       setClients(data);
     })
-    .catch(err => console.error('Failed to load clients:', err));
+    .catch(err => console.error('Clients fetch error:', err));
 
+  //fetch("http://localhost:3001/employees")
   fetch("https://securelytix-api.onrender.com/employees")
-    .then(res => res.json())
+    .then(res => {
+      console.log("Employees fetch response:", res);
+      return res.json();
+    })
     .then(data => {
-      console.log("Employees:", data);
+      console.log("Employees data fetched:", data);
       setEmployees(data);
     })
-    .catch(err => console.error('Failed to load employees:', err));
+    .catch(err => console.error('Employees fetch error:', err));
 }, []);
-*/
+
+
+
   const handleClientChange = (e) => {
     const id = parseInt(e.target.value);
-    const client = clients.find(c => c.id === id);
+    console.log("Clients state before find:", clients);
+    const client = clients.find(c => parseInt(c.id) === id);
+    console.log("Checking Rkkkkkk", client);
     setSelectedClient(client);
   };
 
   const handleEmployeeChange = (e) => {
     const id = parseInt(e.target.value);
-    const employee = employees.find(emp => emp.id === id);
+    const employee = employees.find(emp =>parseInt(emp.id) === id);
     setSelectedEmployee(employee);
   };
 
@@ -64,8 +62,7 @@ export default function Dashboard() {
           <option key={client.id} value={client.id}>{client.name}</option>
         ))}
       </select>
-
-      {selectedClient && (
+        {selectedClient && (
         <div className="details-box">
           <p><strong>Name:</strong> {selectedClient.name}</p>
           <p><strong>Role:</strong> {selectedClient.role}</p>
@@ -94,3 +91,6 @@ export default function Dashboard() {
   </div>
   );
 }
+
+
+
